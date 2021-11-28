@@ -1,3 +1,28 @@
+function get_weighted_table(options) {
+    var i;
+
+    var weights = [];
+
+    for (i = 0; i < options.length; i++)
+        weights[i] = options[i].weight + (weights[i - 1] || 0);
+    
+    var random = Math.random() * weights[weights.length - 1];
+    
+    for (i = 0; i < weights.length; i++)
+        if (weights[i] > random)
+            break;
+    
+    return options[i];
+}
+
+
+
+function get_random_table(options) {
+    return options[Math.floor(Math.random() * options.length)]
+}
+
+
+
 const consumable_tier1 = [
     {
         name: 'Potion of Healing',
