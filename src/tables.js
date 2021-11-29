@@ -898,7 +898,7 @@ const permanent_tier2_nonmartial = [
         source: 'DMG',
         weight: 1
     }, {
-        name: 'bracers of Archery',
+        name: 'Bracers of Archery',
         cost: 350,
         spell: null,
         weapon_type: null,
@@ -1131,7 +1131,7 @@ const permanent_tier2_martial = [
         armor_type: null,
         quantity: 1,
         source: 'DMG',
-        weight: 10
+        weight: 5
     }, {
         name: 'Sentinel Shield',
         cost: 300,
@@ -1259,8 +1259,8 @@ const permanent_tier2_martial = [
         source: 'MMM',
         weight: 10
     }, {
-        name: 'Mirrorfold Studded Leather Armor',
-        cost: 500,
+        name: 'Mirrorfold Studded Leather',
+        cost: 545,
         spell: null,
         weapon_type: null,
         armor_type: null,
@@ -1286,8 +1286,8 @@ const permanent_tier2_martial = [
         source: 'MMM',
         weight: 10
     }, {
-        name: 'Shimmerweave Studded Leather Armor',
-        cost: 400,
+        name: 'Shimmerweave Studded Leather',
+        cost: 445,
         spell: null,
         weapon_type: null,
         armor_type: null,
@@ -1313,7 +1313,7 @@ const permanent_tier2_martial = [
         source: 'MMM',
         weight: 10
     }, {
-        name: 'Vigilant ',
+        name: 'Vigilant Shield',
         cost: 250,
         spell: null,
         weapon_type: null,
@@ -1355,7 +1355,7 @@ const weapon_type_weapon = [
         name: 'Spear',
         cost: 1
     }, {
-        name: 'Crossbow, light',
+        name: 'Light Crossbow',
         cost: 25
     }, {
         name: 'Shortbow',
@@ -1409,10 +1409,10 @@ const weapon_type_weapon = [
         name: 'Warhammer',
         cost: 15
     }, {
-        name: 'Crossbow, hand',
+        name: 'Hand Crossbow',
         cost: 75
     }, {
-        name: 'Crossbow, heavy',
+        name: 'Heavy Crossbow',
         cost: 50
     }, {
         name: 'Longbow',
@@ -1861,7 +1861,7 @@ function get_weighted_table(options) {
                 break;
         }
 
-        item.name = item_name + armor.name;
+        item.name = item.name + armor.name;
         item.armor_type = armor.name;
         item.cost += armor.cost;
     }
@@ -1895,4 +1895,4 @@ function get_x_from_table(x, table) {
     console.log(items2);
 }
 
-get_x_from_table(50, consumable_tier2);
+get_x_from_table(20, permanent_tier2_martial);
