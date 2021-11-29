@@ -1,105 +1,80 @@
-function get_weighted_table(options) {
-    var i;
-
-    var weights = [];
-
-    for (i = 0; i < options.length; i++)
-        weights[i] = options[i].weight + (weights[i - 1] || 0);
-    
-    var random = Math.random() * weights[weights.length - 1];
-    
-    for (i = 0; i < weights.length; i++)
-        if (weights[i] > random)
-            break;
-    
-    return options[i];
-}
-
-
-
-function get_random_table(options) {
-    return options[Math.floor(Math.random() * options.length)]
-}
-
-
-
 const consumable_tier1 = [
     {
         name: 'Potion of Healing',
         cost: 50,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
-        weight: 25
+        weight: 50
     }, {
-        name: 'Spell Scroll (cantrip)',
+        name: 'Spell Scroll of ',
         cost: 25,
-        spell_level: 0,
+        spell: 0,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
         weight: 5
     }, {
-        name: 'Spell Scroll (1st level)',
+        name: 'Spell Scroll of ',
         cost: 50,
-        spell_level: 1,
+        spell: 1,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
-        weight: 10
+        weight: 20
     }, {
         name: 'Potion of Climbing',
         cost: 30,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
         weight: 1
     }, {
-        name: '+1 Ammunition',
+        name: '+1 ',
         cost: 50,
-        spell_level: null,
+        spell: null,
         weapon_type: 'ammunition',
         armor_type: null,
         source: 'DMG',
-        weight: 1
+        weight: 20
     }, {
-        name: 'Spellwrought Tattoo (cantrip)',
+        name: 'Spellwrought Tattoo of ',
         cost: 50,
-        spell_level: 0,
+        spell: 0,
         weapon_type: null,
         armor_type: null,
         source: 'TCE',
-        weight: 1
+        weight: 2
     }, {
-        name: 'Spellwrought Tattoo (1st level)',
+        name: 'Spellwrought Tattoo of ',
         cost: 75,
-        spell_level: 1,
+        spell: 1,
         weapon_type: null,
         armor_type: null,
         source: 'TCE',
-        weight: 1
+        weight: 2
     }, {
         name: 'Bead of Nourishment',
         cost: 25,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
-        weight: 1
+        weight: 2
     }, {
         name: 'Bead of Refreshment',
         cost: 25,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
-        weight: 1
+        weight: 2
     }, {
         name: 'Potion of Agility',
         cost: 50,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -107,7 +82,7 @@ const consumable_tier1 = [
     }, {
         name: 'Potion of Bear Strength',
         cost: 75,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -115,23 +90,7 @@ const consumable_tier1 = [
     }, {
         name: 'Potion of Darkvision',
         cost: 50,
-        spell_level: null,
-        weapon_type: null,
-        armor_type: null,
-        source: 'MMM',
-        weight: 1
-    }, {
-        name: 'Potion of Mimicry',
-        cost: 75,
-        spell_level: null,
-        weapon_type: null,
-        armor_type: null,
-        source: 'MMM',
-        weight: 1
-    }, {
-        name: 'Potion of Mindfulness',
-        cost: 75,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -139,31 +98,7 @@ const consumable_tier1 = [
     }, {
         name: 'Potion of Swimming',
         cost: 30,
-        spell_level: null,
-        weapon_type: null,
-        armor_type: null,
-        source: 'MMM',
-        weight: 1
-    }, {
-        name: 'Empathic Charge',
-        cost: 75,
-        spell_level: null,
-        weapon_type: null,
-        armor_type: null,
-        source: 'MMM',
-        weight: 1
-    }, {
-        name: 'Shimmer Charge',
-        cost: 75,
-        spell_level: null,
-        weapon_type: null,
-        armor_type: null,
-        source: 'MMM',
-        weight: 1
-    }, {
-        name: 'Tremor Charge',
-        cost: 75,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -171,7 +106,7 @@ const consumable_tier1 = [
     }, {
         name: 'Bead of Recovery',
         cost: 75,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -179,7 +114,7 @@ const consumable_tier1 = [
     }, {
         name: 'Bead of Restoration',
         cost: 75,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -192,32 +127,32 @@ const consumable_tier1 = [
 const consumable_tier2 = [
     {
         name: 'Potion of Greater Healing',
-        cost: 300,
-        spell_level: null,
+        cost: 150,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
         weight: 25
     }, {
-        name: 'Spell Scroll (2nd level)',
+        name: 'Spell Scroll of ',
         cost: 150,
-        spell_level: 2,
+        spell: 2,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
         weight: 10
     }, {
-        name: 'Spell Scroll (3rd level)',
+        name: 'Spell Scroll of ',
         cost: 270,
-        spell_level: 3,
+        spell: 3,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
         weight: 10
     }, {
-        name: '+2 Ammunition',
+        name: '+2 ',
         cost: 250,
-        spell_level: null,
+        spell: null,
         weapon_type: 'ammunition',
         armor_type: null,
         source: 'DMG',
@@ -225,15 +160,15 @@ const consumable_tier2 = [
     }, {
         name: 'Potion of Waterbreathing',
         cost: 400,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
-        weight: 2
+        weight: 5
     }, {
         name: 'Potion of Growth',
         cost: 300,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -241,23 +176,23 @@ const consumable_tier2 = [
     }, {
         name: 'Potion of Resistance',
         cost: 500,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
-        weight: 2
+        weight: 5
     }, {
         name: 'Potion of Hill Giant Strength',
         cost: 125,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
-        weight: 2
+        weight: 1
     }, {
         name: 'Potion of Animal Friendship',
         cost: 200,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -265,7 +200,7 @@ const consumable_tier2 = [
     }, {
         name: 'Potion of Fire Breath',
         cost: 350,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -273,47 +208,47 @@ const consumable_tier2 = [
     }, {
         name: 'Oil of Slipperiness',
         cost: 250,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
         weight: 1
     }, {
         name: 'Dust of Dissapearance',
-        cost: 0,
-        spell_level: null,
+        cost: 150,
+        spell: null,
         weapon_type: null,
         armor_type: null,
-        source: '',
+        source: 'DMG',
         weight: 1
     }, {
         name: 'Dust of Dryness',
-        cost: 0,
-        spell_level: null,
+        cost: 150,
+        spell: null,
         weapon_type: null,
         armor_type: null,
-        source: '',
+        source: 'DMG',
         weight: 1
     }, {
         name: 'Dust of Sneezing and Choking',
-        cost: 0,
-        spell_level: null,
+        cost: 150,
+        spell: null,
         weapon_type: null,
         armor_type: null,
-        source: '',
+        source: 'DMG',
         weight: 1
     }, {
-        name: 'Spellwrought Tattoo (2nd level)',
-        cost: 0,
-        spell_level: 2,
+        name: 'Spellwrought Tattoo of ',
+        cost: 225,
+        spell: 2,
         weapon_type: null,
         armor_type: null,
         source: 'TCE',
         weight: 2
     }, {
-        name: 'Spellwrought Tattoo (3rd level)',
-        cost: 0,
-        spell_level: 3,
+        name: 'Spellwrought Tattoo of ',
+        cost: 400,
+        spell: 3,
         weapon_type: null,
         armor_type: null,
         source: 'TCE',
@@ -327,7 +262,7 @@ const permanent_tier1 = [
     {
         name: 'Driftglobe',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -335,7 +270,7 @@ const permanent_tier1 = [
     }, {
         name: 'Boots of False Tracks',
         cost: 60,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
@@ -343,7 +278,7 @@ const permanent_tier1 = [
     }, {
         name: 'Candle of the Deep',
         cost: 50,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
@@ -351,7 +286,7 @@ const permanent_tier1 = [
     }, {
         name: 'Cloak of Many Fashions',
         cost: 90,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
@@ -359,7 +294,7 @@ const permanent_tier1 = [
     }, {
         name: 'Clockwork Amulet',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
@@ -367,7 +302,7 @@ const permanent_tier1 = [
     }, {
         name: 'Clothes of Mending',
         cost: 50,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
@@ -375,7 +310,7 @@ const permanent_tier1 = [
     }, {
         name: 'Enduring Spellbook',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
@@ -383,7 +318,7 @@ const permanent_tier1 = [
     }, {
         name: 'Hat of Wizardry',
         cost: 75,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
@@ -391,7 +326,7 @@ const permanent_tier1 = [
     }, {
         name: 'Horn of Silent Alarm',
         cost: 85,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
@@ -399,7 +334,7 @@ const permanent_tier1 = [
     }, {
         name: 'Instrument of Illusions',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
@@ -407,7 +342,7 @@ const permanent_tier1 = [
     }, {
         name: 'Instrument of Scribing',
         cost: 80,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
@@ -415,15 +350,15 @@ const permanent_tier1 = [
     }, {
         name: 'Lock of Trickery',
         cost: 50,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
         weight: 1
     }, {
-        name: 'Moon-Touched Sword',
+        name: 'Moon-Touched ',
         cost: 75,
-        spell_level: null,
+        spell: null,
         weapon_type: 'sword',
         armor_type: null,
         source: 'XGE',
@@ -431,7 +366,7 @@ const permanent_tier1 = [
     }, {
         name: 'Orb of Direction',
         cost: 50,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
@@ -439,7 +374,7 @@ const permanent_tier1 = [
     }, {
         name: 'Orb of Time',
         cost: 50,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
@@ -447,7 +382,7 @@ const permanent_tier1 = [
     }, {
         name: 'Pole of Collapsing',
         cost: 50,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
@@ -455,7 +390,7 @@ const permanent_tier1 = [
     }, {
         name: 'Rope of Mending',
         cost: 50,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
@@ -463,7 +398,7 @@ const permanent_tier1 = [
     }, {
         name: 'Ruby of the War Mage',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
@@ -471,7 +406,7 @@ const permanent_tier1 = [
     }, {
         name: 'Unbreakable Arrow',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'XGE',
@@ -479,7 +414,7 @@ const permanent_tier1 = [
     }, {
         name: 'Walloping Ammunition',
         cost: 50,
-        spell_level: null,
+        spell: null,
         weapon_type: 'ammunition',
         armor_type: null,
         source: 'XGE',
@@ -487,7 +422,7 @@ const permanent_tier1 = [
     }, {
         name: "Illuminator's Tattoo",
         cost: 65,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'TCE',
@@ -495,7 +430,7 @@ const permanent_tier1 = [
     }, {
         name: "Masquerade Tattoo",
         cost: 75,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'TCE',
@@ -503,7 +438,7 @@ const permanent_tier1 = [
     }, {
         name: 'Amulet of Intuition',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -511,7 +446,7 @@ const permanent_tier1 = [
     }, {
         name: 'Amulet of Respiration',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -519,7 +454,7 @@ const permanent_tier1 = [
     }, {
         name: 'Clandestine Codex',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -527,7 +462,7 @@ const permanent_tier1 = [
     }, {
         name: 'Companion Stones',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -535,7 +470,7 @@ const permanent_tier1 = [
     }, {
         name: 'Divining Rod',
         cost: 75,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -543,7 +478,7 @@ const permanent_tier1 = [
     }, {
         name: 'Echo Stone',
         cost: 75,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -551,7 +486,7 @@ const permanent_tier1 = [
     }, {
         name: 'Entropic Amulet',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -559,7 +494,7 @@ const permanent_tier1 = [
     }, {
         name: "Freya's Fathomless Flask",
         cost: 90,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -567,7 +502,7 @@ const permanent_tier1 = [
     }, {
         name: "Gilbert's Galvanic Gloves",
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -575,7 +510,7 @@ const permanent_tier1 = [
     }, {
         name: 'Jar of Preservation',
         cost: 50,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -583,7 +518,7 @@ const permanent_tier1 = [
     }, {
         name: 'Lock of Lucidity',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -591,7 +526,7 @@ const permanent_tier1 = [
     }, {
         name: 'Luminescent Lenses',
         cost: 50,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -599,7 +534,7 @@ const permanent_tier1 = [
     }, {
         name: 'Orb of Light',
         cost: 50,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -607,7 +542,7 @@ const permanent_tier1 = [
     }, {
         name: 'Orb of Tracing',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -615,7 +550,7 @@ const permanent_tier1 = [
     }, {
         name: 'Replicating Clay',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -623,7 +558,7 @@ const permanent_tier1 = [
     }, {
         name: 'Ring of Comprehension',
         cost: 50,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -631,7 +566,7 @@ const permanent_tier1 = [
     }, {
         name: 'Ring of Recollection',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -639,7 +574,7 @@ const permanent_tier1 = [
     }, {
         name: 'Rod of Resonance',
         cost: 50,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -647,7 +582,7 @@ const permanent_tier1 = [
     }, {
         name: 'Saddle of Symbiosis',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -655,7 +590,7 @@ const permanent_tier1 = [
     }, {
         name: 'Splicing Gloves',
         cost: 90,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -663,7 +598,7 @@ const permanent_tier1 = [
     }, {
         name: "Tanya's Tremendous Toolset",
         cost: 50,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -671,7 +606,7 @@ const permanent_tier1 = [
     }, {
         name: 'Umbral Tome',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -679,7 +614,7 @@ const permanent_tier1 = [
     }, {
         name: 'Wristband of Oration',
         cost: 100,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -687,7 +622,7 @@ const permanent_tier1 = [
     }, {
         name: 'Traceless Arrow',
         cost: 30,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -695,7 +630,7 @@ const permanent_tier1 = [
     }, {
         name: 'Weightless Arrow',
         cost: 30,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -709,7 +644,7 @@ const permanent_tier2_nonmartial = [
     {
         name: 'Immovable Rod',
         cost: 500,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -717,7 +652,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: '+1 Rod of the Pact Keeper',
         cost: 400,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -725,7 +660,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: '+1 Wand of the War Mage',
         cost: 400,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -733,7 +668,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Wand of Magic Detection',
         cost: 150,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -741,7 +676,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Wand of Magic Missiles',
         cost: 300,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -749,7 +684,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Wand of Secrets',
         cost: 125,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -757,7 +692,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Wand of Web',
         cost: 250,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -765,7 +700,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Staff of the Adder',
         cost: 350,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -773,7 +708,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Staff of the Python',
         cost: 250,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -781,7 +716,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Ring of Jumping',
         cost: 250,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -789,7 +724,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Ring of Mind Shielding',
         cost: 450,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -797,7 +732,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Ring of Swimming',
         cost: 300,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -805,7 +740,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Ring of Warmth',
         cost: 480,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -813,7 +748,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Ring of Water Walking',
         cost: 500,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -821,7 +756,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Cap of Water Breathing',
         cost: 450,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -829,7 +764,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Circlet of Blasting',
         cost: 350,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -837,7 +772,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Hat of Disguise',
         cost: 475,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -845,7 +780,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Headband of Intellect',
         cost: 450,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -853,7 +788,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Helm of Comprehend Languages',
         cost: 200,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -861,7 +796,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Helm of Telepathy',
         cost: 300,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -869,7 +804,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Eyes of Minute Seeing',
         cost: 150,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -877,7 +812,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Eyes of the Eagles',
         cost: 400,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -885,7 +820,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Goggles of Night',
         cost: 300,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -893,7 +828,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Amulet of Proof against Detection and Location',
         cost: 400,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -901,7 +836,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: '+1 Amulet of the Devout',
         cost: 425,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'TCE',
@@ -909,7 +844,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Brooch of Shielding',
         cost: 375,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -917,7 +852,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Necklace of Adaptation',
         cost: 450,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -925,7 +860,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Periapt of Health',
         cost: 250,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -933,7 +868,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Periapt of Wound Closure',
         cost: 375,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -941,7 +876,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Cloak of Elvenkind',
         cost: 250,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -949,7 +884,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Cloak of Protection',
         cost: 400,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -957,7 +892,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Cloak of the Manta Ray',
         cost: 350,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -965,7 +900,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'bracers of Archery',
         cost: 350,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -973,7 +908,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Gauntlets of Ogre Power',
         cost: 450,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -981,7 +916,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Gloves of Missile Snaring',
         cost: 325,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -989,7 +924,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Gloves of Swimming and Climbing',
         cost: 250,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -997,7 +932,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Boots of Elvenkind',
         cost: 400,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -1005,7 +940,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Boots of Striding and Springing',
         cost: 200,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -1013,7 +948,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Boots of the Winterlands',
         cost: 300,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -1021,7 +956,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Slippers of Spider Climbing',
         cost: 500,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -1029,7 +964,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: '+1 Arcane Grimoire',
         cost: 425,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'TCE',
@@ -1037,15 +972,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Bag of Holding',
         cost: 500,
-        spell_level: null,
-        weapon_type: null,
-        armor_type: null,
-        source: 'DMG',
-        weight: 1
-    }, {
-        name: 'Bag of Tricks',
-        cost: 500,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -1053,7 +980,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: '+1 Bloodwell Vial',
         cost: 425,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'TCE',
@@ -1061,7 +988,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Deck of Illusions',
         cost: 450,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -1069,7 +996,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Feywild Shard',
         cost: 250,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'TCE',
@@ -1077,7 +1004,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Figurine of Wondrous Power (Silver Raven)',
         cost: 380,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -1085,7 +1012,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Gem of Brightness',
         cost: 250,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'DMG',
@@ -1093,7 +1020,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Guardian Emblem',
         cost: 300,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'TCE',
@@ -1101,7 +1028,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Barrier Tattoo',
         cost: 200,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'TCE',
@@ -1109,7 +1036,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Coiling Grasp Tattoo',
         cost: 500,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'TCE',
@@ -1117,7 +1044,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Eldritch Claw Tattoo',
         cost: 500,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'TCE',
@@ -1125,7 +1052,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Robe of Focus',
         cost: 400,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -1133,7 +1060,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Wand of Shaping',
         cost: 350,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -1141,7 +1068,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Wand of Spellweaving',
         cost: 300,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -1149,7 +1076,7 @@ const permanent_tier2_nonmartial = [
     }, {
         name: 'Warding Robe',
         cost: 500,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
         source: 'MMM',
@@ -1161,219 +1088,246 @@ const permanent_tier2_nonmartial = [
 
 const permanent_tier2_martial = [
     {
-        name: '+1 Weapon',
+        name: '+1 ',
         cost: 500,
-        spell_level: null,
+        spell: null,
         weapon_type: 'weapon',
         armor_type: null,
+        quantity: 1,
         source: 'DMG',
         weight: 10
     }, {
         name: 'Javelin of Lightning',
         cost: 500,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
+        quantity: 1,
         source: 'DMG',
         weight: 1
     }, {
         name: 'Trident of Fish Command',
         cost: 300,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
+        quantity: 1,
         source: 'DMG',
         weight: 1
     }, {
-        name: 'Weapon of Warning',
+        name: ' of Warning',
         cost: 400,
-        spell_level: null,
+        spell: null,
         weapon_type: 'weapon',
         armor_type: null,
+        quantity: 1,
         source: 'DMG',
         weight: 10
     }, {
         name: '+1 Shield',
         cost: 450,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
+        quantity: 1,
         source: 'DMG',
-        weight: 5
+        weight: 10
     }, {
         name: 'Sentinel Shield',
         cost: 300,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
+        quantity: 1,
         source: 'DMG',
         weight: 5
     }, {
-        name: 'Adamantine Armor',
+        name: 'Adamantine ',
         cost: 500,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: 'medium_heavy',
+        quantity: 1,
         source: 'DMG',
         weight: 10
     }, {
-        name: "Mariner's Armor",
+        name: "Mariner's ",
         cost: 400,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: 'armor',
+        quantity: 1,
         source: 'DMG',
         weight: 5
     }, {
-        name: 'Mithral Armor',
+        name: 'Mithral ',
         cost: 450,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: 'medium_heavy',
+        quantity: 1,
         source: 'DMG',
         weight: 10
     }, {
-        name: 'Adaptive Armor',
+        name: 'Adaptive ',
         cost: 350,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: 'armor',
+        quantity: 1,
         source: 'MMM',
         weight: 10
     }, {
-        name: 'Arcing Weapon',
+        name: 'Arcing ',
         cost: 300,
-        spell_level: null,
+        spell: null,
         weapon_type: 'weapon',
         armor_type: null,
+        quantity: 1,
         source: 'MMM',
         weight: 10
     }, {
-        name: 'Dazing Weapon',
+        name: 'Dazing ',
         cost: 400,
-        spell_level: null,
+        spell: null,
         weapon_type: 'weapon',
         armor_type: null,
+        quantity: 1,
         source: 'MMM',
         weight: 10
     }, {
-        name: 'Disruptive Armor',
+        name: 'Disruptive ',
         cost: 500,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: 'armor',
+        quantity: 1,
         source: 'MMM',
         weight: 10
     }, {
         name: 'Dragonhide Shield',
         cost: 300,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
+        quantity: 1,
         source: 'MMM',
         weight: 5
     }, {
-        name: 'Grevious Weapon',
+        name: 'Grevious ',
         cost: 500,
-        spell_level: null,
+        spell: null,
         weapon_type: 'weapon',
         armor_type: null,
+        quantity: 1,
         source: 'MMM',
         weight: 10
     }, {
-        name: 'Guardian Armor',
+        name: 'Guardian ',
         cost: 400,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: 'medium_heavy',
+        quantity: 1,
         source: 'MMM',
         weight: 10
     }, {
-        name: 'Imposing Weapon',
+        name: 'Imposing ',
         cost: 400,
-        spell_level: null,
+        spell: null,
         weapon_type: 'weapon',
         armor_type: null,
+        quantity: 1,
         source: 'MMM',
         weight: 10
     }, {
-        name: 'Keen Weapon',
+        name: 'Keen ',
         cost: 450,
-        spell_level: null,
+        spell: null,
         weapon_type: 'weapon',
         armor_type: null,
+        quantity: 1,
         source: 'MMM',
         weight: 10
     }, {
-        name: 'Menacing Weapon',
+        name: 'Menacing ',
         cost: 400,
-        spell_level: null,
+        spell: null,
         weapon_type: 'weapon',
         armor_type: null,
+        quantity: 1,
         source: 'MMM',
         weight: 10
     }, {
         name: 'Mirrorfold Studded Leather Armor',
         cost: 500,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
+        quantity: 1,
         source: 'MMM',
         weight: 10
     }, {
-        name: 'Relentless Weapon',
+        name: 'Relentless ',
         cost: 500,
-        spell_level: null,
+        spell: null,
         weapon_type: 'weapon',
         armor_type: null,
+        quantity: 1,
         source: 'MMM',
         weight: 10
     }, {
-        name: 'Seeking Weapon',
+        name: 'Seeking ',
         cost: 300,
-        spell_level: null,
+        spell: null,
         weapon_type: 'weapon',
         armor_type: null,
+        quantity: 1,
         source: 'MMM',
         weight: 10
     }, {
         name: 'Shimmerweave Studded Leather Armor',
         cost: 400,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
+        quantity: 1,
         source: 'MMM',
         weight: 10
     }, {
-        name: 'Stoic Weapon',
+        name: 'Stoic ',
         cost: 300,
-        spell_level: null,
+        spell: null,
         weapon_type: 'weapon',
         armor_type: null,
+        quantity: 1,
         source: 'MMM',
         weight: 10
     }, {
-        name: 'Thirsting Weapon',
+        name: 'Thirsting ',
         cost: 400,
-        spell_level: null,
+        spell: null,
         weapon_type: 'weapon',
         armor_type: null,
+        quantity: 1,
         source: 'MMM',
         weight: 10
     }, {
-        name: 'Vigilant Shield',
+        name: 'Vigilant ',
         cost: 250,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: null,
+        quantity: 1,
         source: 'MMM',
         weight: 10
     }, {
-        name: 'Whitesteel Armor',
+        name: 'Whitesteel ',
         cost: 500,
-        spell_level: null,
+        spell: null,
         weapon_type: null,
         armor_type: 'medium_heavy',
+        quantity: 1,
         source: 'MMM',
         weight: 10
     }
@@ -1470,9 +1424,11 @@ const weapon_type_weapon = [
 
 const weapon_type_ammunition = [
     {
-        name: 'Arrow'
+        name: 'Arrow',
+        cost: 0
     }, {
-        name: 'Crossbow Bolt'
+        name: 'Crossbow Bolt',
+        cost: 0
     }
 ];
 
@@ -1544,7 +1500,7 @@ const armor_type_medium_heavy = [
 
 
 
-const spell_level_0 = [
+const spell_0 = [
     {
         name: 'Control Flames', 
         cost: 0
@@ -1592,7 +1548,7 @@ const spell_level_0 = [
 
 
 
-const spell_level_1 = [
+const spell_1 = [
     {
         name: 'Alarm', 
         cost: 0
@@ -1670,7 +1626,7 @@ const spell_level_1 = [
 
 
 
-const spell_level_2 = [
+const spell_2 = [
     {
         name: 'Arcane Lock', 
         cost: 25
@@ -1748,7 +1704,7 @@ const spell_level_2 = [
 
 
 
-const spell_level_3 = [
+const spell_3 = [
     {
         name: 'Beacon of Hope', 
         cost: 0
@@ -1817,3 +1773,126 @@ const spell_level_3 = [
         cost: 0
     }
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function get_weighted_table(options) {
+    var i;
+
+    var weights = [];
+
+    for (i = 0; i < options.length; i++)
+        weights[i] = options[i].weight + (weights[i - 1] || 0);
+    
+    var random = Math.random() * weights[weights.length - 1];
+    
+    for (i = 0; i < weights.length; i++)
+        if (weights[i] > random)
+            break;
+    
+    var item = Object.create(options[i]);
+
+    if (item.spell != null) {
+        switch (item.spell) {
+            case 0:
+                spell = get_random_table(spell_0);
+                break;
+            case 1:
+                spell = get_random_table(spell_1);
+                break;
+            case 2:
+                spell = get_random_table(spell_2);
+                break;
+            case 3:
+                spell = get_random_table(spell_3);
+                break;
+        }
+
+        item.name = item.name + spell.name
+        item.spell = spell.name;
+        item.cost += spell.cost;
+    }
+
+    if (item.weapon_type != null) {
+        switch (item.weapon_type) {
+            case 'weapon':
+                weapon = get_random_table(weapon_type_weapon);
+                break;
+            case('ammunition'):
+                weapon = get_random_table(weapon_type_ammunition);
+                break;
+            case('sword'):
+                weapon = get_random_table(weapon_type_sword);
+                break;
+        }
+
+        if (item.name != ' of Warning') {
+            item.name = item.name + weapon.name;
+        } else {
+            item.name = weapon.name + item.name;
+        }
+        item.weapon_type = weapon.name
+        item.cost += weapon.cost;
+    }
+
+    if (item.armor_type != null) {
+        switch (item.armor_type) {
+            case 'armor':
+                armor = get_random_table(armor_type_armor);
+                break;
+            case 'medium_heavy':
+                armor = get_random_table(armor_type_medium_heavy);
+                break;
+        }
+
+        item.name = item_name + armor.name;
+        item.armor_type = armor.name;
+        item.cost += armor.cost;
+    }
+
+    item_new = {};
+    item_new.name = item.name;
+    item_new.cost = item.cost;
+    item_new.source = item.source;
+
+    return item_new;
+}
+
+function get_random_table(options) {
+    return options[Math.floor(Math.random() * options.length)]
+}
+
+
+function get_x_from_table(x, table) {
+    items = [];
+    for (let i = 0; i < x; i++) {
+        item = get_weighted_table(table);
+        items.push(item);
+    }
+
+    const items2 = [...items.reduce( (mp, o) => {
+        if (!mp.has(o.name)) mp.set(o.name, { ...o, count: 0 });
+        mp.get(o.name).count++;
+        return mp;
+    }, new Map).values()];
+
+    console.log(items2);
+}
+
+get_x_from_table(50, consumable_tier2);
