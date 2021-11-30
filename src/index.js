@@ -1,3 +1,19 @@
+const c1n = document.getElementById('c1n');
+const c1m = document.getElementById('c1m');
+const c2n = document.getElementById('c2n');
+const c2m = document.getElementById('c2m');
+const p1n = document.getElementById('p1n');
+const p2n = document.getElementById('p2n');
+const p2mb = document.getElementById('p2mb');
+const p2mn = document.getElementById('p2mn');
+const smallBtn = document.getElementById('small-btn');
+const mediumBtn = document.getElementById('medium-btn');
+const largeBtn = document.getElementById('large-btn');
+const genBtn = document.getElementById('gen-btn');
+const itemTbl = document.getElementById('item-tbl');
+
+
+
 function get_weighted_table(options) {
     var i;
 
@@ -16,22 +32,30 @@ function get_weighted_table(options) {
 
     if (item.spell != null) {
         switch (item.spell) {
-            case wcUtil_0:
+            case '0':
                 spell = get_random_table(spell_0);
                 break;
-            case wcUtil_1:
+            case '1':
                 spell = get_random_table(spell_1);
                 break;
-            case wcUtil_2:
+            case '2':
                 spell = get_random_table(spell_2);
                 break;
-            case wcUtil_3:
+            case '3':
                 spell = get_random_table(spell_3);
+                break;
+            case '1_martial':
+                spell = get_random_table(spell_1_martial);
+                break;
+            case '2_martial':
+                spell = get_random_table(spell_2_martial);
+                break;
+            case '3_martial':
+                spell = get_random_table(spell_3_martial);
                 break;
         }
 
         item.name = item.name + spell.name
-        item.spell = spell.name;
         item.cost += spell.cost;
     }
 
@@ -53,7 +77,6 @@ function get_weighted_table(options) {
         } else {
             item.name = weapon.name + item.name;
         }
-        item.weapon_type = weapon.name
         item.cost += weapon.cost;
     }
 
@@ -68,8 +91,20 @@ function get_weighted_table(options) {
         }
 
         item.name = item.name + armor.name;
-        item.armor_type = armor.name;
         item.cost += armor.cost;
+    }
+
+    if (item.resistance != null) {
+        switch (item.resistance) {
+            case 'resistance_energy':
+                resistance = get_random_table(resistance_energy);
+                break;
+            case 'resistance_dragon':
+                resistance = get_random_table(resistance_dragon);
+                break;
+        }
+
+        item.name = item.name + " (" + resistance + ")";
     }
 
     item_new = {};
@@ -84,52 +119,82 @@ function get_random_table(options) {
     return options[Math.floor(Math.random() * options.length)]
 }
 
-
-function get_x_from_table(x, table) {
-    items = [];
+function get_x_from_table(x, table, items) {
     for (let i = 0; i < x; i++) {
         item = get_weighted_table(table);
         items.push(item);
     }
 
-    const items2 = [...items.reduce( (mp, o) => {
-        if (!mp.has(o.name)) mp.set(o.name, { ...o, count: 0 });
-        mp.get(o.name).count++;
-        return mp;
-    }, new Map).values()];
-
-    console.log(items2);
+    return items;
 }
 
+function sort_items(items) {
+    const items_sorted = [...items.reduce( (map, item) => {
+        if (!map.has(item.name)) map.set(item.name, { ...item, count: 0 });
+        map.get(item.name).count++;
+        return map;
+    }, new Map).values()];
+
+    return items_sorted.sort((item1, item2) => (item1.cost > item2.cost) ? 1 : -1);
+}
+
+function gen_magic_shop() {
+    items = []
+    items = get_x_from_table(c1n.value, consumable1_nonmartial, items);
+    items = get_x_from_table(c1m.value, consumable1_martial, items);
+    items = get_x_from_table(c2n.value, consumable2_nonmartial, items);
+    items = get_x_from_table(c2m.value, consumable2_martial, items);
+    items = get_x_from_table(p1n.value, permanent1_nonmartial, items);
+    items = get_x_from_table(p2n.value, permanent2_nonmartial, items);
+    items = get_x_from_table(p2mb.value, permanent2_martial_basic, items);
+    items = get_x_from_table(p2mn.value, permanent2_martial_nonbasic, items); 
+    items = sort_items(items);
+
+    let headers = ['Name', 'Cost (gp)', 'Sourcebook', 'Quantity'];
+
+    let table = document.createElement('table');
+    table.setAttribute('id', 'tbl')
+    let headerRow = document.createElement('tr');
+    headers.forEach(headerText => {
+        let header = document.createElement('th');
+        let textNode = document.createTextNode(headerText);
+        header.appendChild(textNode);
+        headerRow.appendChild(header);
+    });
+    table.appendChild(headerRow);
+    items.forEach(item => {
+        let row = document.createElement('tr');
+        Object.values(item).forEach(text => {
+            let cell = document.createElement('td');
+            let textNode = document.createTextNode(text);
+            cell.appendChild(textNode);
+            row.appendChild(cell);
+        });
+        table.appendChild(row);
+    });
+    itemTbl.appendChild(table);
+} 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-const consumable1_mundane = [
+const consumable1_nonmartial = [
     {
         name: 'Potion of Healing',
         cost: 50,
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
-        weight: 50
+        weight: 30
     }, {
         name: 'Spell Scroll of ',
         cost: 25,
         spell: '0',
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 5
     }, {
@@ -138,6 +203,7 @@ const consumable1_mundane = [
         spell: '1',
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 20
     }, {
@@ -146,6 +212,7 @@ const consumable1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -154,6 +221,7 @@ const consumable1_mundane = [
         spell: '0',
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'TCE',
         weight: 2
     }, {
@@ -162,6 +230,7 @@ const consumable1_mundane = [
         spell: '1',
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'TCE',
         weight: 2
     }, {
@@ -170,6 +239,7 @@ const consumable1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 2
     }, {
@@ -178,6 +248,7 @@ const consumable1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 2
     }, {
@@ -186,6 +257,7 @@ const consumable1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -194,6 +266,7 @@ const consumable1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -202,6 +275,7 @@ const consumable1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -210,6 +284,7 @@ const consumable1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }
@@ -224,14 +299,16 @@ const consumable1_martial = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
-        weight: 50
+        weight: 30
     }, {
         name: 'Spell Scroll of ',
         cost: 50,
         spell: '1_martial',
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 20
     }, {
@@ -240,6 +317,7 @@ const consumable1_martial = [
         spell: null,
         weapon_type: 'ammunition',
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 20
     }, {
@@ -248,6 +326,7 @@ const consumable1_martial = [
         spell: '1_martial',
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'TCE',
         weight: 2
     }, {
@@ -256,6 +335,7 @@ const consumable1_martial = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 5
     }, {
@@ -264,6 +344,7 @@ const consumable1_martial = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -272,6 +353,7 @@ const consumable1_martial = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, 
@@ -279,13 +361,14 @@ const consumable1_martial = [
 
 
 
-const consumable2_mundane = [
+const consumable2_nonmartial = [
     {
         name: 'Potion of Greater Healing',
         cost: 150,
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 25
     }, {
@@ -294,6 +377,7 @@ const consumable2_mundane = [
         spell: '2',
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 10
     }, {
@@ -302,6 +386,7 @@ const consumable2_mundane = [
         spell: '3',
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 10
     }, {
@@ -310,6 +395,7 @@ const consumable2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -318,6 +404,7 @@ const consumable2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -326,6 +413,7 @@ const consumable2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -334,6 +422,7 @@ const consumable2_mundane = [
         spell: '2',
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'TCE',
         weight: 2
     }, {
@@ -342,6 +431,7 @@ const consumable2_mundane = [
         spell: '3',
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'TCE',
         weight: 2
     }
@@ -356,6 +446,7 @@ const consumable2_martial = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 25
     }, {
@@ -364,6 +455,7 @@ const consumable2_martial = [
         spell: '2_martial',
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 5
     }, {
@@ -372,6 +464,7 @@ const consumable2_martial = [
         spell: '3_martial',
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 20
     }, {
@@ -380,6 +473,7 @@ const consumable2_martial = [
         spell: null,
         weapon_type: 'ammunition',
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 20
     }, {
@@ -388,6 +482,7 @@ const consumable2_martial = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -396,6 +491,7 @@ const consumable2_martial = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -404,6 +500,7 @@ const consumable2_martial = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -412,6 +509,7 @@ const consumable2_martial = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -420,6 +518,7 @@ const consumable2_martial = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: 'resistance_energy',
         source: 'DMG',
         weight: 5
     }, {
@@ -428,6 +527,7 @@ const consumable2_martial = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -436,6 +536,7 @@ const consumable2_martial = [
         spell: '2_martial',
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'TCE',
         weight: 2
     }, {
@@ -444,6 +545,7 @@ const consumable2_martial = [
         spell: '3_martial',
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'TCE',
         weight: 2
     }
@@ -451,13 +553,14 @@ const consumable2_martial = [
 
 
 
-const permanent1_mundane = [
+const permanent1_nonmartial = [
     {
         name: 'Driftglobe',
         cost: 100,
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -466,6 +569,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 1
     }, {
@@ -474,6 +578,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 2
     }, {
@@ -482,6 +587,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 1
     }, {
@@ -490,6 +596,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 1
     }, {
@@ -498,6 +605,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 2
     }, {
@@ -506,6 +614,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 2
     }, {
@@ -514,6 +623,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 1
     }, {
@@ -522,6 +632,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 2
     }, {
@@ -530,6 +641,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 1
     }, {
@@ -538,6 +650,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 1
     }, {
@@ -546,6 +659,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 1
     }, {
@@ -554,6 +668,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 1
     }, {
@@ -562,6 +677,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 1
     }, {
@@ -570,6 +686,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 2
     }, {
@@ -578,6 +695,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 2
     }, {
@@ -586,6 +704,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'TCE',
         weight: 1
     }, {
@@ -594,6 +713,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'TCE',
         weight: 1
     }, {
@@ -602,6 +722,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -610,6 +731,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -618,6 +740,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -626,6 +749,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 2
     }, {
@@ -634,6 +758,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -642,6 +767,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -650,6 +776,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -658,6 +785,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -666,6 +794,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -674,6 +803,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -682,6 +812,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -690,6 +821,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -698,6 +830,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -706,6 +839,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -714,6 +848,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 2
     }, {
@@ -722,6 +857,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -730,6 +866,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -738,6 +875,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -746,6 +884,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -754,6 +893,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -762,6 +902,7 @@ const permanent1_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }
@@ -769,13 +910,14 @@ const permanent1_mundane = [
 
 
 
-const permanent2_mundane = [
+const permanent2_nonmartial = [
     {
         name: 'Immovable Rod',
         cost: 500,
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -784,6 +926,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -792,6 +935,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -800,6 +944,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -808,6 +953,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -816,6 +962,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -824,6 +971,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -832,6 +980,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -840,6 +989,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -848,6 +998,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -856,6 +1007,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -864,6 +1016,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -872,6 +1025,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -880,6 +1034,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -888,6 +1043,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -896,6 +1052,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -904,6 +1061,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -912,6 +1070,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -920,6 +1079,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -928,6 +1088,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -936,6 +1097,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -944,6 +1106,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -952,6 +1115,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -960,6 +1124,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -968,6 +1133,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -976,6 +1142,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -984,6 +1151,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -992,6 +1160,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -1000,6 +1169,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -1008,6 +1178,7 @@ const permanent2_mundane = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }
@@ -1022,7 +1193,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: 'weapon',
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'DMG',
         weight: 10
     }, {
@@ -1031,7 +1202,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -1040,7 +1211,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: 'weapon',
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'DMG',
         weight: 10
     }, {
@@ -1049,7 +1220,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'DMG',
         weight: 5
     }, {
@@ -1058,7 +1229,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'DMG',
         weight: 5
     }, {
@@ -1067,7 +1238,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: null,
         armor_type: 'medium_heavy',
-        quantity: 1,
+        resistance: null,
         source: 'DMG',
         weight: 10
     }, {
@@ -1076,7 +1247,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: null,
         armor_type: 'armor',
-        quantity: 1,
+        resistance: null,
         source: 'DMG',
         weight: 5
     }, {
@@ -1085,7 +1256,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: null,
         armor_type: 'medium_heavy',
-        quantity: 1,
+        resistance: null,
         source: 'DMG',
         weight: 10
     }, {
@@ -1094,6 +1265,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: 'sword',
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 10
     }, {
@@ -1102,6 +1274,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 1
     }, {
@@ -1110,6 +1283,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: 'ammunition',
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 1
     }, {
@@ -1118,7 +1292,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: null,
         armor_type: 'armor',
-        quantity: 1,
+        resistance: null,
         source: 'MMM',
         weight: 10
     }, {
@@ -1127,7 +1301,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: 'weapon',
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'MMM',
         weight: 10
     }, {
@@ -1136,7 +1310,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: 'weapon',
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'MMM',
         weight: 10
     }, {
@@ -1145,7 +1319,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: null,
         armor_type: 'armor',
-        quantity: 1,
+        resistance: null,
         source: 'MMM',
         weight: 10
     }, {
@@ -1154,7 +1328,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
-        quantity: 1,
+        resistance: 'resistance_dragon',
         source: 'MMM',
         weight: 5
     }, {
@@ -1163,7 +1337,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: 'weapon',
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'MMM',
         weight: 10
     }, {
@@ -1172,7 +1346,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: null,
         armor_type: 'medium_heavy',
-        quantity: 1,
+        resistance: null,
         source: 'MMM',
         weight: 10
     }, {
@@ -1181,7 +1355,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: 'weapon',
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'MMM',
         weight: 10
     }, {
@@ -1190,7 +1364,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: 'weapon',
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'MMM',
         weight: 10
     }, {
@@ -1199,7 +1373,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: 'weapon',
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'MMM',
         weight: 10
     }, {
@@ -1208,7 +1382,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'MMM',
         weight: 10
     }, {
@@ -1217,7 +1391,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: 'weapon',
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'MMM',
         weight: 10
     }, {
@@ -1226,7 +1400,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: 'weapon',
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'MMM',
         weight: 10
     }, {
@@ -1235,7 +1409,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'MMM',
         weight: 10
     }, {
@@ -1244,7 +1418,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: 'weapon',
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'MMM',
         weight: 10
     }, {
@@ -1253,7 +1427,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: 'weapon',
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'MMM',
         weight: 10
     }, {
@@ -1262,7 +1436,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
-        quantity: 1,
+        resistance: null,
         source: 'MMM',
         weight: 10
     }, {
@@ -1271,7 +1445,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: null,
         armor_type: 'medium_heavy',
-        quantity: 1,
+        resistance: null,
         source: 'MMM',
         weight: 10
     }, {
@@ -1280,6 +1454,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -1288,6 +1463,7 @@ const permanent2_martial_basic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 5
     }
@@ -1302,6 +1478,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -1310,6 +1487,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -1318,6 +1496,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -1326,6 +1505,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -1334,6 +1514,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -1342,6 +1523,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -1350,6 +1532,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -1358,6 +1541,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -1366,6 +1550,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -1374,6 +1559,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'DMG',
         weight: 1
     }, {
@@ -1382,6 +1568,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'TCE',
         weight: 1
     }, {
@@ -1390,6 +1577,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'TCE',
         weight: 1
     }, {
@@ -1398,6 +1586,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'XGE',
         weight: 1
     }, {
@@ -1406,6 +1595,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'TCE',
         weight: 1
     }, {
@@ -1414,6 +1604,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'TCE',
         weight: 1
     }, {
@@ -1422,6 +1613,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'TCE',
         weight: 1
     }, {
@@ -1430,6 +1622,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -1438,6 +1631,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -1446,6 +1640,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }, {
@@ -1454,6 +1649,7 @@ const permanent2_martial_nonbasic = [
         spell: null,
         weapon_type: null,
         armor_type: null,
+        resistance: null,
         source: 'MMM',
         weight: 1
     }
@@ -2139,3 +2335,89 @@ const spell_3_martial = [
         cost: 0
     }
 ];
+
+resistance_energy = [
+    'Acid', 'Cold', 'Fire', 'Lightning', 'Thunder'
+]
+
+resistance_dragon = [
+    'Black', 'Blue', 'Green', 'Red', 'White'
+]
+
+resistance_dragon_all = [
+    'Black', 'Blue', 'Brass', 'Bronze', 'Copper', 'Gold', 'Green', 'Red', 'Silver', 'White'
+]
+
+
+
+smallBtn.addEventListener('click', () => {
+    c1n.value = '15';
+    c1m.value = '3';
+    c2n.value = '2';
+    c2m.value = '1';
+    p1n.value = '1';
+    p2n.value = '1';
+    p2mb.value = '1';
+    p2mn.value = '1';
+});
+
+mediumBtn.addEventListener('click', () => {
+    c1n.value = '25';
+    c1m.value = '5';
+    c2n.value = '5';
+    c2m.value = '2';
+    p1n.value = '2';
+    p2n.value = '2';
+    p2mb.value = '2';
+    p2mn.value = '2';
+});
+
+largeBtn.addEventListener('click', () => {
+    c1n.value = '40';
+    c1m.value = '10';
+    c2n.value = '10';
+    c2m.value = '5';
+    p1n.value = '5';
+    p2n.value = '5';
+    p2mb.value = '5';
+    p2mn.value = '5';
+});
+
+genBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    items = []
+    items = get_x_from_table(c1n.value, consumable1_nonmartial, items);
+    items = get_x_from_table(c1m.value, consumable1_martial, items);
+    items = get_x_from_table(c2n.value, consumable2_nonmartial, items);
+    items = get_x_from_table(c2m.value, consumable2_martial, items);
+    items = get_x_from_table(p1n.value, permanent1_nonmartial, items);
+    items = get_x_from_table(p2n.value, permanent2_nonmartial, items);
+    items = get_x_from_table(p2mb.value, permanent2_martial_basic, items);
+    items = get_x_from_table(p2mn.value, permanent2_martial_nonbasic, items); 
+    items = sort_items(items);
+
+    let headers = ['Name', 'Cost (gp)', 'Sourcebook', 'Quantity'];
+
+    let table = document.createElement('table');
+    table.setAttribute('id', 'tbl')
+    let headerRow = document.createElement('tr');
+    headers.forEach(headerText => {
+        let header = document.createElement('th');
+        let textNode = document.createTextNode(headerText);
+        header.appendChild(textNode);
+        headerRow.appendChild(header);
+    });
+    table.appendChild(headerRow);
+    items.forEach(item => {
+        let row = document.createElement('tr');
+        Object.values(item).forEach(text => {
+            let cell = document.createElement('td');
+            let textNode = document.createTextNode(text);
+            cell.appendChild(textNode);
+            row.appendChild(cell);
+        });
+        table.appendChild(row);
+    });
+    itemTbl.appendChild(table);
+});

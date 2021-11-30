@@ -1,0 +1,18 @@
+#controls {
+    display: flex;
+    flex-direction: row;
+}
+
+.control {
+    display: flex;
+    flex-direction: column;
+}
+
+.control-title {
+    
+}
+
+#presets {
+    display: flex;
+    flex-direction: row;
+}
