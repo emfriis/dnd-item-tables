@@ -140,14 +140,14 @@ function sort_items(items) {
 
 function gen_magic_shop() {
     items = []
-    items = get_x_from_table(c1n.value, consumable1_nonmartial, items);
-    items = get_x_from_table(c1m.value, consumable1_martial, items);
-    items = get_x_from_table(c2n.value, consumable2_nonmartial, items);
-    items = get_x_from_table(c2m.value, consumable2_martial, items);
-    items = get_x_from_table(p1n.value, permanent1_nonmartial, items);
-    items = get_x_from_table(p2n.value, permanent2_nonmartial, items);
-    items = get_x_from_table(p2mb.value, permanent2_martial_basic, items);
-    items = get_x_from_table(p2mn.value, permanent2_martial_nonbasic, items); 
+    items = get_x_from_table(c1n.value, basic_consumable_common, items);
+    items = get_x_from_table(c1m.value, martial_consumable_common, items);
+    items = get_x_from_table(c2n.value, basic_consumable_uncommon, items);
+    items = get_x_from_table(c2m.value, martial_consumable_uncommon, items);
+    items = get_x_from_table(p1n.value, basic_item_common, items);
+    items = get_x_from_table(p2n.value, basic_item_uncommon, items);
+    items = get_x_from_table(p2mb.value, martial_item_uncommon, items);
+    items = get_x_from_table(p2mn.value, arcane_item_uncommon, items); 
     items = sort_items(items);
 
     let headers = ['Name', 'Cost (gp)', 'Sourcebook', 'Quantity'];
@@ -178,7 +178,7 @@ function gen_magic_shop() {
 
 
 
-const consumable1_nonmartial = [
+const basic_consumable_common = [
     {
         name: 'Potion of Healing',
         cost: 50,
@@ -223,7 +223,7 @@ const consumable1_nonmartial = [
         armor_type: null,
         resistance: null,
         source: 'TCE',
-        weight: 2
+        weight: 1
     }, {
         name: 'Spellwrought Tattoo of ',
         cost: 75,
@@ -232,7 +232,7 @@ const consumable1_nonmartial = [
         armor_type: null,
         resistance: null,
         source: 'TCE',
-        weight: 2
+        weight: 1
     }, {
         name: 'Bead of Nourishment',
         cost: 25,
@@ -241,7 +241,7 @@ const consumable1_nonmartial = [
         armor_type: null,
         resistance: null,
         source: 'XGE',
-        weight: 2
+        weight: 1
     }, {
         name: 'Bead of Refreshment',
         cost: 25,
@@ -250,7 +250,7 @@ const consumable1_nonmartial = [
         armor_type: null,
         resistance: null,
         source: 'XGE',
-        weight: 2
+        weight: 1
     }, {
         name: 'Potion of Darkvision',
         cost: 50,
@@ -292,7 +292,7 @@ const consumable1_nonmartial = [
 
 
 
-const consumable1_martial = [
+const martial_consumable_common = [
     {
         name: 'Potion of Healing',
         cost: 50,
@@ -361,7 +361,7 @@ const consumable1_martial = [
 
 
 
-const consumable2_nonmartial = [
+const basic_consumable_uncommon = [
     {
         name: 'Potion of Greater Healing',
         cost: 150,
@@ -390,15 +390,6 @@ const consumable2_nonmartial = [
         source: 'DMG',
         weight: 10
     }, {
-        name: 'Potion of Animal Friendship',
-        cost: 200,
-        spell: null,
-        weapon_type: null,
-        armor_type: null,
-        resistance: null,
-        source: 'DMG',
-        weight: 1
-    }, {
         name: 'Dust of Dissapearance',
         cost: 150,
         spell: null,
@@ -424,7 +415,7 @@ const consumable2_nonmartial = [
         armor_type: null,
         resistance: null,
         source: 'TCE',
-        weight: 2
+        weight: 1
     }, {
         name: 'Spellwrought Tattoo of ',
         cost: 400,
@@ -433,13 +424,13 @@ const consumable2_nonmartial = [
         armor_type: null,
         resistance: null,
         source: 'TCE',
-        weight: 2
+        weight: 1
     }
 ];
 
 
 
-const consumable2_martial = [
+const martial_consumable_uncommon = [
     {
         name: 'Potion of Greater Healing',
         cost: 150,
@@ -553,7 +544,7 @@ const consumable2_martial = [
 
 
 
-const permanent1_nonmartial = [
+const basic_item_common = [
     {
         name: 'Driftglobe',
         cost: 100,
@@ -910,7 +901,7 @@ const permanent1_nonmartial = [
 
 
 
-const permanent2_nonmartial = [
+const basic_item_uncommon = [
     {
         name: 'Immovable Rod',
         cost: 500,
@@ -1186,7 +1177,7 @@ const permanent2_nonmartial = [
 
 
 
-const permanent2_martial_basic = [
+const martial_item_uncommon = [
     {
         name: '+1 ',
         cost: 500,
@@ -1471,7 +1462,7 @@ const permanent2_martial_basic = [
 
 
 
-const permanent2_martial_nonbasic = [
+const arcane_item_uncommon = [
     {
         name: '+1 Wand of the War Mage',
         cost: 400,
@@ -2351,25 +2342,25 @@ resistance_dragon_all = [
 
 
 smallBtn.addEventListener('click', () => {
-    c1n.value = '15';
-    c1m.value = '3';
-    c2n.value = '2';
-    c2m.value = '1';
-    p1n.value = '1';
-    p2n.value = '1';
-    p2mb.value = '1';
-    p2mn.value = '1';
+    c1n.value = '5';
+    c1m.value = '0';
+    c2n.value = '0';
+    c2m.value = '0';
+    p1n.value = '0';
+    p2n.value = '0';
+    p2mb.value = '0';
+    p2mn.value = '0';
 });
 
 mediumBtn.addEventListener('click', () => {
-    c1n.value = '25';
+    c1n.value = '15';
     c1m.value = '5';
     c2n.value = '5';
     c2m.value = '2';
     p1n.value = '2';
-    p2n.value = '2';
-    p2mb.value = '2';
-    p2mn.value = '2';
+    p2n.value = '1';
+    p2mb.value = '0';
+    p2mn.value = '0';
 });
 
 largeBtn.addEventListener('click', () => {
@@ -2387,14 +2378,14 @@ genBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
     items = []
-    items = get_x_from_table(c1n.value, consumable1_nonmartial, items);
-    items = get_x_from_table(c1m.value, consumable1_martial, items);
-    items = get_x_from_table(c2n.value, consumable2_nonmartial, items);
-    items = get_x_from_table(c2m.value, consumable2_martial, items);
-    items = get_x_from_table(p1n.value, permanent1_nonmartial, items);
-    items = get_x_from_table(p2n.value, permanent2_nonmartial, items);
-    items = get_x_from_table(p2mb.value, permanent2_martial_basic, items);
-    items = get_x_from_table(p2mn.value, permanent2_martial_nonbasic, items); 
+    items = get_x_from_table(c1n.value, basic_consumable_common, items);
+    items = get_x_from_table(c1m.value, martial_consumable_common, items);
+    items = get_x_from_table(c2n.value, basic_consumable_uncommon, items);
+    items = get_x_from_table(c2m.value, martial_consumable_uncommon, items);
+    items = get_x_from_table(p1n.value, basic_item_common, items);
+    items = get_x_from_table(p2n.value, basic_item_uncommon, items);
+    items = get_x_from_table(p2mb.value, martial_item_uncommon, items);
+    items = get_x_from_table(p2mn.value, arcane_item_uncommon, items); 
     items = sort_items(items);
 
     let headers = ['Name', 'Cost (gp)', 'Sourcebook', 'Quantity'];
