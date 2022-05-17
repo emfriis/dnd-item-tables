@@ -13,39 +13,44 @@
             <div class="title">
                 <h2>Item Quantities</h2>
             </div>
-            <div id="controls">
+            <div class="controls">
                 <div class="control">
                     <h3>Basic Consumables (common)</h3>
-                    <input id="c1n">
-                </div>
-                <div class="control">
-                    <h3>Martial Consumables (common)</h3>
-                    <input id="c1m">
+                    <input id="c1n" type="number" min="0">
                 </div>
                 <div class="control">
                     <h3>Basic Consumables (uncommon)</h3>
-                    <input id="c2n">
-                </div>
-                <div class="control">
-                    <h3>Martial Consumables (uncommon)</h3>
-                    <input id="c2m">
+                    <input id="c2n" type="number" min="0">
                 </div>
                 <div class="control">
                     <h3>Basic Items (common)</h3>
-                    <input id="p1n">
+                    <input id="p1n" type="number" min="0">
                 </div>
                 <div class="control">
                     <h3 class="control-title">Basic Items (uncommon)</h3>
-                    <input id="p2n">
+                    <input id="p2n" type="number" min="0">
+                </div>
+            </div>
+            <div class="controls">
+                <div class="control">
+                    <h3>Martial Consumables (common)</h3>
+                    <input id="c1m" type="number" min="0">
+                </div>
+                <div class="control">
+                    <h3>Martial Consumables (uncommon)</h3>
+                    <input id="c2m" type="number" min="0">
+                </div>
+                <div class="control">
+                    <h3>Martial Weapons and Armor (uncommon)</h3>
+                    <input id="p2mb" type="number" min="0">
                 </div>
                 <div class="control">
                     <h3>Martial Items (uncommon)</h3>
-                    <input id="p2mb">
+                    <input id="p2mn" type="number" min="0">
                 </div>
-                <div class="control">
-                    <h3>Arcane Items (uncommon)</h3>
-                    <input id="p2mn">
-                </div>
+            </div>
+            <div id="controls3">
+                
             </div>
             <div class="title">
                 <h2>Presets</h2>
@@ -54,6 +59,12 @@
                 <button class="preset" id="small-btn">Village-Sized Magic Shop</button>
                 <button class="preset" id="medium-btn">Town-Sized Magic Shop</button>
                 <button class="preset" id="large-btn">City-Sized Magic Shop</button>
+            </div>
+            <div class="controls">
+                <div class="control">
+                    <h3>Price Modifier (Percentage)</h3>
+                    <span><input id="price-mod" value="100" type="number" min="0">%</span>
+                </div>
             </div>
             <div id="btn-container">
                 <button id="gen-btn">Generate Table</button>

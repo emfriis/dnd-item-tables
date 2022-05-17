@@ -9,7 +9,7 @@
     text-align: center;
 }
 
-#controls {
+.controls {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -19,6 +19,7 @@
 .control {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin-right: 1vw;
 }
 

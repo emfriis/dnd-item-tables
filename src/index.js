@@ -9,6 +9,7 @@ const p2mn = document.getElementById('p2mn');
 const smallBtn = document.getElementById('small-btn');
 const mediumBtn = document.getElementById('medium-btn');
 const largeBtn = document.getElementById('large-btn');
+const priceMod = document.getElementById('price-mod');
 const genBtn = document.getElementById('gen-btn');
 const itemTbl = document.getElementById('item-tbl');
 
@@ -16,6 +17,12 @@ const itemTbl = document.getElementById('item-tbl');
 
 function get_weighted_table(options) {
     var i;
+
+    if (!isNaN(priceMod.value)) {
+        xCost = priceMod.value / 100;
+    } else {
+        xCost = 1;
+    }
 
     var weights = [];
 
@@ -109,7 +116,7 @@ function get_weighted_table(options) {
 
     item_new = {};
     item_new.name = item.name;
-    item_new.cost = item.cost;
+    item_new.cost = item.cost * xCost;
     item_new.source = item.source;
 
     return item_new;
@@ -2376,6 +2383,8 @@ largeBtn.addEventListener('click', () => {
 
 genBtn.addEventListener('click', (e) => {
     e.preventDefault();
+
+    itemTbl.innerHTML = "";
 
     items = []
     items = get_x_from_table(c1n.value, basic_consumable_common, items);
