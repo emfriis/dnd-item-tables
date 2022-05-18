@@ -2111,7 +2111,7 @@ const martial_item_2_uncommon = [
         armor_type: null,
         resistance: null,
         source: 'TGS 80',
-        weight: 5
+        weight: 1
     }, {
         name: 'Relentless Bulwark',
         cost: 600,
@@ -2120,7 +2120,7 @@ const martial_item_2_uncommon = [
         armor_type: null,
         resistance: null,
         source: 'TGS 105',
-        weight: 5
+        weight: 1
     }, {
         name: 'Ring of the Sandskimmer',
         cost: 250,
