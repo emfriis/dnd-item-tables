@@ -196,7 +196,7 @@ const basic_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 187',
         weight: 30
     }, {
         name: 'Spell Scroll of ',
@@ -205,7 +205,7 @@ const basic_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 200',
         weight: 5
     }, {
         name: 'Spell Scroll of ',
@@ -214,7 +214,7 @@ const basic_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 200',
         weight: 20
     }, {
         name: 'Potion of Climbing',
@@ -223,7 +223,7 @@ const basic_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 187',
         weight: 1
     }, {
         name: 'Spellwrought Tattoo of ',
@@ -232,7 +232,7 @@ const basic_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TCE',
+        source: 'TCE 135',
         weight: 1
     }, {
         name: 'Spellwrought Tattoo of ',
@@ -241,7 +241,7 @@ const basic_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TCE',
+        source: 'TCE 135',
         weight: 1
     }, {
         name: 'Bead of Nourishment',
@@ -250,7 +250,7 @@ const basic_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 136',
         weight: 1
     }, {
         name: 'Bead of Refreshment',
@@ -259,7 +259,7 @@ const basic_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 136',
         weight: 1
     }, {
         name: 'Potion of Darkvision',
@@ -268,7 +268,7 @@ const basic_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 1',
         weight: 1
     }, {
         name: 'Potion of Swimming',
@@ -277,7 +277,7 @@ const basic_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 2',
         weight: 1
     }, {
         name: 'Bead of Recovery',
@@ -286,7 +286,7 @@ const basic_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 1',
         weight: 1
     }, {
         name: 'Bead of Restoration',
@@ -295,7 +295,7 @@ const basic_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 1',
         weight: 1
     }, {
         name: 'Bath Potion',
@@ -304,7 +304,7 @@ const basic_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 33',
         weight: 1
     }
 ];
@@ -319,7 +319,7 @@ const martial_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 187',
         weight: 30
     }, {
         name: 'Spell Scroll of ',
@@ -328,7 +328,7 @@ const martial_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 200',
         weight: 20
     }, {
         name: '+1 ',
@@ -337,7 +337,7 @@ const martial_consumable_common = [
         weapon_type: 'ammunition',
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 150',
         weight: 20
     }, {
         name: 'Spellwrought Tattoo of ',
@@ -346,7 +346,7 @@ const martial_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TCE',
+        source: 'TCE 135',
         weight: 2
     }, {
         name: 'Traceless Arrow',
@@ -355,7 +355,7 @@ const martial_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 2',
         weight: 5
     }, {
         name: 'Potion of Agility',
@@ -364,7 +364,7 @@ const martial_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 1',
         weight: 1
     }, {
         name: 'Potion of Bear Strength',
@@ -373,18 +373,9 @@ const martial_consumable_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 1',
         weight: 1
-    }, {
-        name: 'Weightless Arrow',
-        cost: 30,
-        spell: null,
-        weapon_type: null,
-        armor_type: null,
-        resistance: null,
-        source: 'MMM',
-        weight: 5
-    } 
+    }
 ]
 
 
@@ -397,7 +388,7 @@ const basic_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 187',
         weight: 25
     }, {
         name: 'Spell Scroll of ',
@@ -406,7 +397,7 @@ const basic_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 200',
         weight: 10
     }, {
         name: 'Spell Scroll of ',
@@ -415,7 +406,7 @@ const basic_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 200',
         weight: 10
     }, {
         name: 'Dust of Dissapearance',
@@ -424,7 +415,7 @@ const basic_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 166',
         weight: 1
     }, {
         name: 'Dust of Dryness',
@@ -433,7 +424,7 @@ const basic_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 166',
         weight: 1
     }, {
         name: 'Spellwrought Tattoo of ',
@@ -442,7 +433,7 @@ const basic_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TCE',
+        source: 'TCE 135',
         weight: 1
     }, {
         name: 'Spellwrought Tattoo of ',
@@ -451,7 +442,7 @@ const basic_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TCE',
+        source: 'TCE 135',
         weight: 1
     }, {
         name: 'Bag of Sundrops',
@@ -460,7 +451,7 @@ const basic_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 30',
         weight: 1
     }, {
         name: 'Shadow Ink',
@@ -469,7 +460,7 @@ const basic_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 113',
         weight: 1
     }
 ];
@@ -484,7 +475,7 @@ const martial_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 187',
         weight: 25
     }, {
         name: 'Spell Scroll of ',
@@ -493,7 +484,7 @@ const martial_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 200',
         weight: 5
     }, {
         name: 'Spell Scroll of ',
@@ -502,7 +493,7 @@ const martial_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 200',
         weight: 20
     }, {
         name: '+2 ',
@@ -511,7 +502,7 @@ const martial_consumable_uncommon = [
         weapon_type: 'ammunition',
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 150',
         weight: 20
     }, {
         name: 'Dust of Sneezing and Choking',
@@ -520,7 +511,7 @@ const martial_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 166',
         weight: 1
     }, {
         name: 'Oil of Slipperiness',
@@ -529,7 +520,7 @@ const martial_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 184',
         weight: 1
     }, {
         name: 'Potion of Fire Breath',
@@ -538,7 +529,7 @@ const martial_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 187',
         weight: 1
     }, {
         name: 'Potion of Growth',
@@ -547,7 +538,7 @@ const martial_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 187',
         weight: 1
     }, {
         name: 'Potion of Resistance',
@@ -556,7 +547,7 @@ const martial_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: 'resistance_energy',
-        source: 'DMG',
+        source: 'DMG 188',
         weight: 5
     }, {
         name: 'Potion of Hill Giant Strength',
@@ -565,7 +556,7 @@ const martial_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 187',
         weight: 1
     }, {
         name: 'Spellwrought Tattoo of ',
@@ -574,7 +565,7 @@ const martial_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TCE',
+        source: 'TCE 135',
         weight: 2
     }, {
         name: 'Spellwrought Tattoo of ',
@@ -583,7 +574,7 @@ const martial_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TCE',
+        source: 'TCE 135',
         weight: 2
     }, {
         name: 'Healing ',
@@ -592,7 +583,7 @@ const martial_consumable_uncommon = [
         weapon_type: 'ammunition',
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 76',
         weight: 1
     }, {
         name: "Potion of Dragon's Breath",
@@ -601,7 +592,7 @@ const martial_consumable_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: 'resistance_dragon',
-        source: 'TGS',
+        source: 'TGS 98',
         weight: 1
     }, {
         name: 'Void ',
@@ -610,7 +601,7 @@ const martial_consumable_uncommon = [
         weapon_type: 'ammunition',
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 139',
         weight: 1
     }
 ]
@@ -625,7 +616,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 166',
         weight: 1
     }, {
         name: 'Boots of False Tracks',
@@ -634,7 +625,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 136',
         weight: 1
     }, {
         name: 'Candle of the Deep',
@@ -643,7 +634,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 136',
         weight: 2
     }, {
         name: 'Cloak of Many Fashions',
@@ -652,7 +643,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 136',
         weight: 1
     }, {
         name: 'Clockwork Amulet',
@@ -661,7 +652,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 137',
         weight: 1
     }, {
         name: 'Clothes of Mending',
@@ -670,7 +661,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 137',
         weight: 2
     }, {
         name: 'Enduring Spellbook',
@@ -679,7 +670,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 137',
         weight: 2
     }, {
         name: 'Hat of Wizardry',
@@ -688,7 +679,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 137',
         weight: 1
     }, {
         name: 'Horn of Silent Alarm',
@@ -697,7 +688,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 137',
         weight: 2
     }, {
         name: 'Instrument of Illusions',
@@ -706,7 +697,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 137',
         weight: 1
     }, {
         name: 'Instrument of Scribing',
@@ -715,7 +706,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 138',
         weight: 1
     }, {
         name: 'Lock of Trickery',
@@ -724,7 +715,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 138',
         weight: 1
     }, {
         name: 'Orb of Direction',
@@ -733,7 +724,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 138',
         weight: 1
     }, {
         name: 'Orb of Time',
@@ -742,7 +733,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 138',
         weight: 1
     }, {
         name: 'Pole of Collapsing',
@@ -751,7 +742,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 138',
         weight: 2
     }, {
         name: 'Rope of Mending',
@@ -760,7 +751,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 138',
         weight: 2
     }, {
         name: "Illuminator's Tattoo",
@@ -769,7 +760,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TCE',
+        source: 'TCE 129',
         weight: 1
     }, {
         name: "Masquerade Tattoo",
@@ -778,7 +769,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TCE',
+        source: 'TCE 131',
         weight: 1
     }, {
         name: 'Amulet of Intuition',
@@ -787,7 +778,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 3',
         weight: 1
     }, {
         name: 'Amulet of Respiration',
@@ -796,7 +787,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 3',
         weight: 1
     }, {
         name: 'Clandestine Codex',
@@ -805,7 +796,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 3',
         weight: 1
     }, {
         name: 'Companion Stones',
@@ -814,7 +805,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 3',
         weight: 2
     }, {
         name: 'Divining Rod',
@@ -823,7 +814,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 3',
         weight: 1
     }, {
         name: 'Echo Stone',
@@ -832,7 +823,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 3',
         weight: 1
     }, {
         name: "Freya's Fathomless Flask",
@@ -841,7 +832,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 3',
         weight: 1
     }, {
         name: "Gilbert's Galvanic Gloves",
@@ -850,7 +841,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 4',
         weight: 1
     }, {
         name: 'Jar of Preservation',
@@ -859,7 +850,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 4',
         weight: 1
     }, {
         name: 'Lock of Lucidity',
@@ -868,7 +859,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 4',
         weight: 1
     }, {
         name: 'Luminescent Lenses',
@@ -877,7 +868,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 4',
         weight: 1
     }, {
         name: 'Orb of Light',
@@ -886,7 +877,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 4',
         weight: 1
     }, {
         name: 'Orb of Tracing',
@@ -895,7 +886,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 4',
         weight: 1
     }, {
         name: 'Replicating Clay',
@@ -904,7 +895,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 4',
         weight: 1
     }, {
         name: 'Ring of Comprehension',
@@ -913,7 +904,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 4',
         weight: 2
     }, {
         name: 'Ring of Recollection',
@@ -922,7 +913,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 4',
         weight: 1
     }, {
         name: 'Rod of Resonance',
@@ -931,7 +922,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 5',
         weight: 1
     }, {
         name: 'Saddle of Symbiosis',
@@ -940,7 +931,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 5',
         weight: 1
     }, {
         name: "Tanya's Tremendous Toolset",
@@ -949,7 +940,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 5',
         weight: 1
     }, {
         name: 'Umbral Tome',
@@ -958,7 +949,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 5',
         weight: 1
     }, {
         name: 'Wristband of Oration',
@@ -967,7 +958,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 5',
         weight: 1
     }, {
         name: 'Bard-in-a-Box',
@@ -976,7 +967,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 31',
         weight: 1
     }, {
         name: "Companion's Band",
@@ -985,7 +976,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 46',
         weight: 1
     }, {
         name: 'Container of Heat and Frost',
@@ -994,7 +985,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 47',
         weight: 1
     }, {
         name: "Orator's Quill",
@@ -1003,7 +994,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 93',
         weight: 1
     }, {
         name: 'Permanent Parchment',
@@ -1012,7 +1003,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 95',
         weight: 1
     }, {
         name: 'Quicksilver Clay',
@@ -1021,7 +1012,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 102',
         weight: 1
     }, {
         name: 'Ring of the Fowl Sentinel',
@@ -1030,7 +1021,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 107',
         weight: 1
     }, {
         name: 'Webgrip Rucksack',
@@ -1039,7 +1030,7 @@ const basic_item_common = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 143',
         weight: 1
     }
 ];
@@ -1054,7 +1045,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 175',
         weight: 1
     }, {
         name: 'Wand of Magic Detection',
@@ -1063,7 +1054,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 211',
         weight: 1
     }, {
         name: 'Wand of Secrets',
@@ -1072,7 +1063,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 211',
         weight: 1
     }, {
         name: 'Ring of Jumping',
@@ -1081,7 +1072,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 191',
         weight: 1
     }, {
         name: 'Ring of Mind Shielding',
@@ -1090,7 +1081,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 191',
         weight: 1
     }, {
         name: 'Ring of Swimming',
@@ -1099,7 +1090,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 193',
         weight: 1
     }, {
         name: 'Ring of Warmth',
@@ -1108,7 +1099,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 193',
         weight: 1
     }, {
         name: 'Ring of Water Walking',
@@ -1117,7 +1108,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 193',
         weight: 1
     }, {
         name: 'Cap of Water Breathing',
@@ -1126,7 +1117,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 157',
         weight: 1
     }, {
         name: 'Hat of Disguise',
@@ -1135,7 +1126,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 173',
         weight: 1
     }, {
         name: 'Headband of Intellect',
@@ -1144,7 +1135,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 173',
         weight: 1
     }, {
         name: 'Helm of Comprehend Languages',
@@ -1153,7 +1144,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 173',
         weight: 1
     }, {
         name: 'Helm of Telepathy',
@@ -1162,7 +1153,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 174',
         weight: 1
     }, {
         name: 'Eyes of Minute Seeing',
@@ -1171,16 +1162,16 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 168',
         weight: 1
     }, {
-        name: 'Eyes of the Eagles',
+        name: 'Eyes of the Eagle',
         cost: 400,
         spell: null,
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 168',
         weight: 1
     }, {
         name: 'Goggles of Night',
@@ -1189,7 +1180,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 172',
         weight: 1
     }, {
         name: 'Amulet of Proof against Detection and Location',
@@ -1198,7 +1189,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 150',
         weight: 1
     }, {
         name: 'Necklace of Adaptation',
@@ -1207,7 +1198,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 182',
         weight: 1
     }, {
         name: 'Periapt of Health',
@@ -1216,7 +1207,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 184',
         weight: 1
     }, {
         name: 'Cloak of Elvenkind',
@@ -1225,7 +1216,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 158',
         weight: 1
     }, {
         name: 'Cloak of the Manta Ray',
@@ -1234,7 +1225,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 159',
         weight: 1
     }, {
         name: 'Gloves of Swimming and Climbing',
@@ -1243,7 +1234,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 172',
         weight: 1
     }, {
         name: 'Boots of Elvenkind',
@@ -1252,7 +1243,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 155',
         weight: 1
     }, {
         name: 'Boots of Striding and Springing',
@@ -1261,7 +1252,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 156',
         weight: 1
     }, {
         name: 'Boots of the Winterlands',
@@ -1270,7 +1261,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 156',
         weight: 1
     }, {
         name: 'Slippers of Spider Climbing',
@@ -1279,7 +1270,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 200',
         weight: 1
     }, {
         name: 'Bag of Holding',
@@ -1288,7 +1279,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 153',
         weight: 1
     }, {
         name: 'Deck of Illusions',
@@ -1297,7 +1288,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 161',
         weight: 1
     }, {
         name: 'Figurine of Wondrous Power (Silver Raven)',
@@ -1306,7 +1297,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 170',
         weight: 1
     }, {
         name: 'Gem of Brightness',
@@ -1315,7 +1306,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 171',
         weight: 1
     }, {
         name: 'Bands of the Found and Lost',
@@ -1324,7 +1315,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 31',
         weight: 1
     }, {
         name: 'Boots of the Cloud Jumper',
@@ -1333,7 +1324,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 37',
         weight: 1
     }, {
         name: 'Candle of Anti-Light',
@@ -1342,7 +1333,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 40',
         weight: 1
     }, {
         name: "Charlatan's Wardrobe",
@@ -1351,7 +1342,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 42',
         weight: 1
     }, {
         name: "Devil's Detail Eyepatch",
@@ -1360,7 +1351,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 52',
         weight: 1
     }, {
         name: 'Everice Box',
@@ -1369,7 +1360,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 60',
         weight: 1
     }, {
         name: 'Eye of the Bookwurm',
@@ -1378,7 +1369,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 61',
         weight: 1
     }, {
         name: 'Ironshod Trotters',
@@ -1387,7 +1378,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 81',
         weight: 1
     }, {
         name: "Locksmith's Bane",
@@ -1396,7 +1387,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 84',
         weight: 1
     }, {
         name: 'Mammoth Boots',
@@ -1405,7 +1396,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 85',
         weight: 1
     }, {
         name: "Seafarer's Jacket",
@@ -1414,7 +1405,7 @@ const basic_item_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 110',
         weight: 1
     }
 ];
@@ -1429,7 +1420,7 @@ const martial_item_1_uncommon = [
         weapon_type: 'weapon',
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 213',
         weight: 10
     }, {
         name: 'Javelin of Lightning',
@@ -1438,7 +1429,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 178',
         weight: 1
     }, {
         name: ' of Warning',
@@ -1447,7 +1438,7 @@ const martial_item_1_uncommon = [
         weapon_type: 'weapon',
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 213',
         weight: 10
     }, {
         name: '+1 Shield',
@@ -1456,7 +1447,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 200',
         weight: 5
     }, {
         name: 'Sentinel Shield',
@@ -1465,7 +1456,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 199',
         weight: 5
     }, {
         name: 'Adamantine ',
@@ -1474,7 +1465,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: 'medium_heavy',
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 150',
         weight: 10
     }, {
         name: "Mariner's ",
@@ -1483,7 +1474,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: 'armor',
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 181',
         weight: 5
     }, {
         name: 'Mithral ',
@@ -1492,7 +1483,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: 'medium_heavy',
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 182',
         weight: 10
     }, {
         name: 'Moon-Touched ',
@@ -1501,7 +1492,7 @@ const martial_item_1_uncommon = [
         weapon_type: 'sword',
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 138',
         weight: 10
     }, {
         name: 'Unbreakable Arrow',
@@ -1510,7 +1501,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 139',
         weight: 1
     }, {
         name: 'Walloping Ammunition',
@@ -1519,7 +1510,7 @@ const martial_item_1_uncommon = [
         weapon_type: 'ammunition',
         armor_type: null,
         resistance: null,
-        source: 'XGE',
+        source: 'XGE 139',
         weight: 1
     }, {
         name: 'Adaptive ',
@@ -1528,7 +1519,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: 'armor',
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 6',
         weight: 10
     }, {
         name: 'Arcing ',
@@ -1537,7 +1528,7 @@ const martial_item_1_uncommon = [
         weapon_type: 'weapon',
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 6',
         weight: 10
     }, {
         name: 'Dazing ',
@@ -1546,7 +1537,7 @@ const martial_item_1_uncommon = [
         weapon_type: 'weapon',
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 6',
         weight: 10
     }, {
         name: 'Disruptive ',
@@ -1555,7 +1546,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: 'armor',
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 6',
         weight: 10
     }, {
         name: 'Dragonhide Shield',
@@ -1564,7 +1555,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: 'resistance_dragon',
-        source: 'MMM',
+        source: 'MMM 6',
         weight: 5
     }, {
         name: 'Grevious ',
@@ -1573,7 +1564,7 @@ const martial_item_1_uncommon = [
         weapon_type: 'weapon',
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 6',
         weight: 10
     }, {
         name: 'Guardian ',
@@ -1582,7 +1573,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: 'medium_heavy',
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 6',
         weight: 10
     }, {
         name: 'Imposing ',
@@ -1591,7 +1582,7 @@ const martial_item_1_uncommon = [
         weapon_type: 'weapon',
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 7',
         weight: 10
     }, {
         name: 'Keen ',
@@ -1600,7 +1591,7 @@ const martial_item_1_uncommon = [
         weapon_type: 'weapon',
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 7',
         weight: 10
     }, {
         name: 'Menacing ',
@@ -1609,7 +1600,7 @@ const martial_item_1_uncommon = [
         weapon_type: 'weapon',
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 7',
         weight: 10
     }, {
         name: 'Mirrorfold Studded Leather',
@@ -1618,7 +1609,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 7',
         weight: 10
     }, {
         name: 'Relentless ',
@@ -1627,7 +1618,7 @@ const martial_item_1_uncommon = [
         weapon_type: 'weapon',
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 7',
         weight: 10
     }, {
         name: 'Seeking ',
@@ -1636,7 +1627,7 @@ const martial_item_1_uncommon = [
         weapon_type: 'weapon',
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 7',
         weight: 10
     }, {
         name: 'Shimmerweave Studded Leather',
@@ -1645,7 +1636,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 8',
         weight: 10
     }, {
         name: 'Stoic ',
@@ -1654,7 +1645,7 @@ const martial_item_1_uncommon = [
         weapon_type: 'weapon',
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 8',
         weight: 10
     }, {
         name: 'Thirsting ',
@@ -1663,7 +1654,7 @@ const martial_item_1_uncommon = [
         weapon_type: 'weapon',
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 8',
         weight: 10
     }, {
         name: 'Vigilant Shield',
@@ -1672,7 +1663,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 8',
         weight: 10
     }, {
         name: 'Whitesteel ',
@@ -1681,16 +1672,25 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: 'medium_heavy',
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 8',
         weight: 10
     }, {
+        name: 'Weightless Arrow',
+        cost: 30,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'MMM 2',
+        weight: 5
+    } , {
         name: 'Axe Beak Tomahawk',
         cost: 300,
         spell: null,
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 30',
         weight: 5
     }, {
         name: 'Barge Helm',
@@ -1699,7 +1699,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 32',
         weight: 5
     }, {
         name: 'Barricade Shield',
@@ -1708,7 +1708,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 32',
         weight: 5
     }, {
         name: 'Battlement Bow',
@@ -1717,7 +1717,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 34',
         weight: 5
     }, {
         name: 'Chromacloth',
@@ -1726,7 +1726,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 42',
         weight: 5
     }, {
         name: 'Discordant Thunderstave',
@@ -1735,7 +1735,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 52',
         weight: 5
     }, {
         name: 'Dragon Edge ',
@@ -1744,7 +1744,7 @@ const martial_item_1_uncommon = [
         weapon_type: 'weapon',
         armor_type: null,
         resistance: 'resistance_dragon',
-        source: 'TGS',
+        source: 'TGS 55',
         weight: 10
     }, {
         name: 'Festerwood Buckler',
@@ -1753,7 +1753,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 62',
         weight: 5
     }, {
         name: 'Festerwood Logger',
@@ -1762,7 +1762,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 62',
         weight: 5
     }, {
         name: 'Frostbitten Buckler',
@@ -1771,7 +1771,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 70',
         weight: 5
     }, {
         name: 'Frozen Dagger',
@@ -1780,7 +1780,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 70',
         weight: 5
     }, {
         name: 'Ice Sickle',
@@ -1789,16 +1789,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
-        weight: 5
-    }, {
-        name: 'Ironleaf Oaken Shield',
-        cost: 600,
-        spell: null,
-        weapon_type: null,
-        armor_type: null,
-        resistance: null,
-        source: 'TGS',
+        source: 'TGS 78',
         weight: 5
     }, {
         name: 'Overshield',
@@ -1807,7 +1798,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 93',
         weight: 5
     }, {
         name: 'Prismatic Javelin',
@@ -1816,16 +1807,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
-        weight: 5
-    }, {
-        name: 'Relentless Bulwark',
-        cost: 600,
-        spell: null,
-        weapon_type: null,
-        armor_type: null,
-        resistance: null,
-        source: 'TGS',
+        source: 'TGS 98',
         weight: 5
     }, {
         name: "Torchbearer's Reach",
@@ -1834,7 +1816,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 135',
         weight: 5
     }, {
         name: 'Venombane Studded Leather',
@@ -1843,7 +1825,7 @@ const martial_item_1_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 138',
         weight: 5
     }, {
         name: ' of Spite',
@@ -1852,7 +1834,7 @@ const martial_item_1_uncommon = [
         weapon_type: 'weapon',
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 143',
         weight: 1
     }
 ];
@@ -1867,7 +1849,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 212',
         weight: 1
     }, {
         name: 'Wand of Magic Missiles',
@@ -1876,7 +1858,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 211',
         weight: 1
     }, {
         name: 'Wand of Web',
@@ -1885,7 +1867,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 212',
         weight: 1
     }, {
         name: 'Circlet of Blasting',
@@ -1894,7 +1876,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 158',
         weight: 1
     }, {
         name: 'Brooch of Shielding',
@@ -1903,7 +1885,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 156',
         weight: 1
     }, {
         name: 'Periapt of Wound Closure',
@@ -1912,7 +1894,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 184',
         weight: 1
     }, {
         name: 'Cloak of Protection',
@@ -1921,7 +1903,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 159',
         weight: 1
     }, {
         name: 'Bracers of Archery',
@@ -1930,7 +1912,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 156',
         weight: 1
     }, {
         name: 'Gauntlets of Ogre Power',
@@ -1939,7 +1921,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 171',
         weight: 1
     }, {
         name: 'Gloves of Missile Snaring',
@@ -1948,7 +1930,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'DMG',
+        source: 'DMG 172',
         weight: 1
     }, {
         name: '+1 Arcane Grimoire',
@@ -1957,7 +1939,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TCE',
+        source: 'TCE 120',
         weight: 1
     }, {
         name: '+1 Bloodwell Vial',
@@ -1966,16 +1948,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TCE',
-        weight: 1
-    }, {
-        name: 'Ruby of the War Mage',
-        cost: 100,
-        spell: null,
-        weapon_type: null,
-        armor_type: null,
-        resistance: null,
-        source: 'XGE',
+        source: 'TCE 122',
         weight: 1
     }, {
         name: 'Barrier Tattoo',
@@ -1984,7 +1957,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TCE',
+        source: 'TCE 122',
         weight: 1
     }, {
         name: 'Coiling Grasp Tattoo',
@@ -1993,7 +1966,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TCE',
+        source: 'TCE 123',
         weight: 1
     }, {
         name: 'Eldritch Claw Tattoo',
@@ -2002,7 +1975,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TCE',
+        source: 'TCE 126',
         weight: 1
     }, {
         name: '+1 Moon Sickle',
@@ -2011,7 +1984,25 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TCE',
+        source: 'TCE 133',
+        weight: 1
+    }, {
+        name: 'Guardian Emblem',
+        cost: 300,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TCE 128',
+        weight: 1
+    }, {
+        name: 'Ruby of the War Mage',
+        cost: 100,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'XGE 138',
         weight: 1
     }, {
         name: 'Robe of Focus',
@@ -2020,7 +2011,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 7',
         weight: 1
     }, {
         name: 'Splicing Gloves',
@@ -2029,7 +2020,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 5',
         weight: 1
     }, {
         name: 'Wand of Shaping',
@@ -2038,7 +2029,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 8',
         weight: 1
     }, {
         name: 'Wand of Spellweaving',
@@ -2047,7 +2038,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 8',
         weight: 1
     }, {
         name: 'Warding Robe',
@@ -2056,7 +2047,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
+        source: 'MMM 8',
         weight: 1
     }, {
         name: "Abjurer's Gilder",
@@ -2065,7 +2056,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 27',
         weight: 1
     }, {
         name: 'Amulet of Equilibrium',
@@ -2074,7 +2065,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 27',
         weight: 1
     }, {
         name: 'Clockwork Faefly',
@@ -2083,7 +2074,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 44',
         weight: 1
     }, {
         name: 'Eaglereign',
@@ -2092,7 +2083,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 58',
         weight: 1
     }, {
         name: 'Fireweaver Gloves',
@@ -2101,7 +2092,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 65',
         weight: 1
     }, {
         name: 'Inferno Rope',
@@ -2110,8 +2101,26 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 80',
         weight: 1
+    }, {
+        name: 'Ironleaf Oaken Shield',
+        cost: 600,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS 80',
+        weight: 5
+    }, {
+        name: 'Relentless Bulwark',
+        cost: 600,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS 105',
+        weight: 5
     }, {
         name: 'Ring of the Sandskimmer',
         cost: 250,
@@ -2119,7 +2128,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 107',
         weight: 1
     }, {
         name: 'Ring of Wind',
@@ -2128,7 +2137,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 107',
         weight: 1
     }, {
         name: 'Rocborne Robe',
@@ -2137,7 +2146,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 108',
         weight: 1
     }, {
         name: 'Sirensong Silencer',
@@ -2146,7 +2155,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 117',
         weight: 1
     }, {
         name: 'Spellwoven Robe',
@@ -2155,7 +2164,7 @@ const martial_item_2_uncommon = [
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'TGS',
+        source: 'TGS 118',
         weight: 1
     }
 ]
