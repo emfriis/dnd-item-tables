@@ -79,7 +79,7 @@ function get_weighted_table(options) {
                 break;
         }
 
-        if (item.name != ' of Warning') {
+        if (item.name != ' of Warning' && item.name != ' of Spite') {
             item.name = item.name + weapon.name;
         } else {
             item.name = weapon.name + item.name;
@@ -108,6 +108,9 @@ function get_weighted_table(options) {
                 break;
             case 'resistance_dragon':
                 resistance = get_random_table(resistance_dragon);
+                break;
+            case 'resistance_dragon_all':
+                resistance = get_random_table(resistance_dragon_all);
                 break;
         }
 
@@ -294,6 +297,15 @@ const basic_consumable_common = [
         resistance: null,
         source: 'MMM',
         weight: 1
+    }, {
+        name: 'Bath Potion',
+        cost: 25,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
     }
 ];
 
@@ -363,7 +375,16 @@ const martial_consumable_common = [
         resistance: null,
         source: 'MMM',
         weight: 1
-    }, 
+    }, {
+        name: 'Weightless Arrow',
+        cost: 30,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'MMM',
+        weight: 5
+    } 
 ]
 
 
@@ -431,6 +452,24 @@ const basic_consumable_uncommon = [
         armor_type: null,
         resistance: null,
         source: 'TCE',
+        weight: 1
+    }, {
+        name: 'Bag of Sundrops',
+        cost: 500,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Shadow Ink',
+        cost: 150,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
         weight: 1
     }
 ];
@@ -546,6 +585,33 @@ const martial_consumable_uncommon = [
         resistance: null,
         source: 'TCE',
         weight: 2
+    }, {
+        name: 'Healing ',
+        cost: 200,
+        spell: null,
+        weapon_type: 'ammunition',
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: "Potion of Dragon's Breath",
+        cost: 300,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: 'resistance_dragon',
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Void ',
+        cost: 150,
+        spell: null,
+        weapon_type: 'ammunition',
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
     }
 ]
 
@@ -903,6 +969,78 @@ const basic_item_common = [
         resistance: null,
         source: 'MMM',
         weight: 1
+    }, {
+        name: 'Bard-in-a-Box',
+        cost: 50,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: "Companion's Band",
+        cost: 50,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Container of Heat and Frost',
+        cost: 50,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: "Orator's Quill",
+        cost: 50,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Permanent Parchment',
+        cost: 50,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Quicksilver Clay',
+        cost: 100,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Ring of the Fowl Sentinel',
+        cost: 100,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Webgrip Rucksack',
+        cost: 75,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
     }
 ];
 
@@ -1179,12 +1317,111 @@ const basic_item_uncommon = [
         resistance: null,
         source: 'DMG',
         weight: 1
+    }, {
+        name: 'Bands of the Found and Lost',
+        cost: 250,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Boots of the Cloud Jumper',
+        cost: 450,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Candle of Anti-Light',
+        cost: 500,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: "Charlatan's Wardrobe",
+        cost: 200,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: "Devil's Detail Eyepatch",
+        cost: 300,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Everice Box',
+        cost: 150,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Eye of the Bookwurm',
+        cost: 150,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Ironshod Trotters',
+        cost: 300,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: "Locksmith's Bane",
+        cost: 400,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Mammoth Boots',
+        cost: 250,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: "Seafarer's Jacket",
+        cost: 400,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
     }
 ];
 
 
 
-const martial_item_uncommon = [
+const martial_item_1_uncommon = [
     {
         name: '+1 ',
         cost: 500,
@@ -1447,29 +1684,182 @@ const martial_item_uncommon = [
         source: 'MMM',
         weight: 10
     }, {
-        name: 'Splicing Gloves',
-        cost: 100,
+        name: 'Axe Beak Tomahawk',
+        cost: 300,
         spell: null,
         weapon_type: null,
         armor_type: null,
         resistance: null,
-        source: 'MMM',
-        weight: 1
-    }, {
-        name: 'Weightless Arrow',
-        cost: 30,
-        spell: null,
-        weapon_type: null,
-        armor_type: null,
-        resistance: null,
-        source: 'MMM',
+        source: 'TGS',
         weight: 5
+    }, {
+        name: 'Barge Helm',
+        cost: 250,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 5
+    }, {
+        name: 'Barricade Shield',
+        cost: 400,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 5
+    }, {
+        name: 'Battlement Bow',
+        cost: 400,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 5
+    }, {
+        name: 'Chromacloth',
+        cost: 300,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 5
+    }, {
+        name: 'Discordant Thunderstave',
+        cost: 600,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 5
+    }, {
+        name: 'Dragon Edge ',
+        cost: 0,
+        spell: null,
+        weapon_type: 'weapon',
+        armor_type: null,
+        resistance: 'resistance_dragon',
+        source: 'TGS',
+        weight: 10
+    }, {
+        name: 'Festerwood Buckler',
+        cost: 150,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 5
+    }, {
+        name: 'Festerwood Logger',
+        cost: 350,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 5
+    }, {
+        name: 'Frostbitten Buckler',
+        cost: 400,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 5
+    }, {
+        name: 'Frozen Dagger',
+        cost: 350,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 5
+    }, {
+        name: 'Ice Sickle',
+        cost: 300,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 5
+    }, {
+        name: 'Ironleaf Oaken Shield',
+        cost: 600,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 5
+    }, {
+        name: 'Overshield',
+        cost: 750,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 5
+    }, {
+        name: 'Prismatic Javelin',
+        cost: 500,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 5
+    }, {
+        name: 'Relentless Bulwark',
+        cost: 600,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 5
+    }, {
+        name: "Torchbearer's Reach",
+        cost: 300,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 5
+    }, {
+        name: 'Venombane Studded Leather',
+        cost: 300,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 5
+    }, {
+        name: ' of Spite',
+        cost: 600,
+        spell: null,
+        weapon_type: 'weapon',
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
     }
 ];
 
 
 
-const arcane_item_uncommon = [
+const martial_item_2_uncommon = [
     {
         name: '+1 Wand of the War Mage',
         cost: 400,
@@ -1615,8 +2005,26 @@ const arcane_item_uncommon = [
         source: 'TCE',
         weight: 1
     }, {
+        name: '+1 Moon Sickle',
+        cost: 1500,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TCE',
+        weight: 1
+    }, {
         name: 'Robe of Focus',
         cost: 400,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'MMM',
+        weight: 1
+    }, {
+        name: 'Splicing Gloves',
+        cost: 100,
         spell: null,
         weapon_type: null,
         armor_type: null,
@@ -1649,6 +2057,105 @@ const arcane_item_uncommon = [
         armor_type: null,
         resistance: null,
         source: 'MMM',
+        weight: 1
+    }, {
+        name: "Abjurer's Gilder",
+        cost: 300,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Amulet of Equilibrium',
+        cost: 250,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Clockwork Faefly',
+        cost: 300,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Eaglereign',
+        cost: 600,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Fireweaver Gloves',
+        cost: 350,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Inferno Rope',
+        cost: 300,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Ring of the Sandskimmer',
+        cost: 250,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Ring of Wind',
+        cost: 350,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Rocborne Robe',
+        cost: 400,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Sirensong Silencer',
+        cost: 250,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
+        weight: 1
+    }, {
+        name: 'Spellwoven Robe',
+        cost: 1500,
+        spell: null,
+        weapon_type: null,
+        armor_type: null,
+        resistance: null,
+        source: 'TGS',
         weight: 1
     }
 ]
@@ -2334,13 +2841,19 @@ const spell_3_martial = [
     }
 ];
 
+
+
 resistance_energy = [
     'Acid', 'Cold', 'Fire', 'Lightning', 'Thunder'
 ]
 
+
+
 resistance_dragon = [
     'Black', 'Blue', 'Green', 'Red', 'White'
 ]
+
+
 
 resistance_dragon_all = [
     'Black', 'Blue', 'Brass', 'Bronze', 'Copper', 'Gold', 'Green', 'Red', 'Silver', 'White'
@@ -2393,8 +2906,8 @@ genBtn.addEventListener('click', (e) => {
     items = get_x_from_table(c2m.value, martial_consumable_uncommon, items);
     items = get_x_from_table(p1n.value, basic_item_common, items);
     items = get_x_from_table(p2n.value, basic_item_uncommon, items);
-    items = get_x_from_table(p2mb.value, martial_item_uncommon, items);
-    items = get_x_from_table(p2mn.value, arcane_item_uncommon, items); 
+    items = get_x_from_table(p2mb.value, martial_item_1_uncommon, items);
+    items = get_x_from_table(p2mn.value, martial_item_2_uncommon, items); 
     items = sort_items(items);
 
     let headers = ['Name', 'Cost (gp)', 'Sourcebook', 'Quantity'];
