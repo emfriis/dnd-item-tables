@@ -596,7 +596,7 @@ const martial_consumable_uncommon = [
         weight: 1
     }, {
         name: 'Void ',
-        cost: 150,
+        cost: 100,
         spell: null,
         weapon_type: 'ammunition',
         armor_type: null,
@@ -1683,7 +1683,7 @@ const martial_item_1_uncommon = [
         resistance: null,
         source: 'MMM 2',
         weight: 5
-    } , {
+    }, {
         name: 'Axe Beak Tomahawk',
         cost: 300,
         spell: null,
@@ -2176,12 +2176,6 @@ const weapon_type_weapon = [
         name: 'Dagger',
         cost: 2
     }, {
-        name: 'Handaxe',
-        cost: 5
-    }, {
-        name: 'Javelin',
-        cost: 0.5
-    }, {
         name: 'Mace',
         cost: 5
     }, {
@@ -2325,6 +2319,9 @@ const armor_type_medium_heavy = [
     }, {
         name: 'Half-Plate',
         cost: 750
+    }, {
+        name: 'Chain Mail',
+        cost: 75
     }, {
         name: 'Splint',
         cost: 200
@@ -2871,33 +2868,33 @@ resistance_dragon_all = [
 
 
 smallBtn.addEventListener('click', () => {
-    c1n.value = '5';
-    c1m.value = '0';
-    c2n.value = '0';
+    c1n.value = '10';
+    c1m.value = '5';
+    c2n.value = '1';
     c2m.value = '0';
-    p1n.value = '0';
+    p1n.value = '2';
     p2n.value = '0';
     p2mb.value = '0';
     p2mn.value = '0';
 });
 
 mediumBtn.addEventListener('click', () => {
-    c1n.value = '15';
-    c1m.value = '5';
-    c2n.value = '5';
-    c2m.value = '2';
-    p1n.value = '2';
+    c1n.value = '30';
+    c1m.value = '15';
+    c2n.value = '15';
+    c2m.value = '5';
+    p1n.value = '5';
     p2n.value = '1';
-    p2mb.value = '0';
-    p2mn.value = '0';
+    p2mb.value = '1';
+    p2mn.value = '1';
 });
 
 largeBtn.addEventListener('click', () => {
-    c1n.value = '40';
-    c1m.value = '10';
-    c2n.value = '10';
-    c2m.value = '5';
-    p1n.value = '5';
+    c1n.value = '30';
+    c1m.value = '15';
+    c2n.value = '15';
+    c2m.value = '10';
+    p1n.value = '10';
     p2n.value = '5';
     p2mb.value = '5';
     p2mn.value = '5';
